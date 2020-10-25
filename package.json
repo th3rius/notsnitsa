@@ -5,17 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "gts lint",
-    "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "yarn run compile",
-    "pretest": "yarn run compile",
-    "posttest": "yarn run lint"
+    "start": "next start"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.12.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
