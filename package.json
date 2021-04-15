@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@tryghost/content-api": "1.4.1",
-    "@tryghost/helpers": "1.1.33",
+    "@tryghost/helpers": "1.1.42",
     "next": "9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
