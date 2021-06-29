@@ -1,0 +1,41 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import Tag from './Tag';
+
+<Meta title="Tag" component={Tag} />
+
+# Tag
+
+Let's define a story for our `Tag` component:
+
+<Story name="positive">
+  <Tag status="positive">Positive</Tag>
+</Story>
+
+We can drop it in a `Canvas` to get a code snippet:
+
+<Canvas>
+  <Story name="negative">
+    <Tag status="negative">Negative</Tag>
+  </Story>
+</Canvas>
+
+We can even preview multiple stories in a block. This
+gets rendered as a group, but defines individual stories
+with unique URLs and isolated snapshot tests.
+
+<Canvas>
+  <Story name="warning">
+    <Tag status="warning">Warning</Tag>
+  </Story>
+  <Story name="neutral">
+    <Tag status="neutral">Neutral</Tag>
+  </Story>
+  <Story name="error">
+    <Tag status="error">Error</Tag>
+  </Story>
+  <Story name="with icon">
+    <Tag status="warning">
+      with icon
+    </Tag>
+  </Story>
+</Canvas>

@@ -5,16 +5,33 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "start-storybook -s public",
+    "build-storybook": "build-storybook",
+    "test": "jest"
   },
   "dependencies": {
     "@tryghost/content-api": "1.4.1",
     "@tryghost/helpers": "1.1.33",
-    "next": "9.5.5",
+    "core-js": "^3.14.0",
+    "luxon": "^1.26.0",
+    "next": "^10.2.3",
+    "prismjs": "^1.23.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-html-parser": "^2.0.2",
+    "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-storyshots": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "babel-loader": "^8.2.2",
+    "jest": "^27.0.4",
     "prettier": "2.1.1"
   }
 }
