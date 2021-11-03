@@ -13,7 +13,7 @@
   "dependencies": {
     "@tryghost/content-api": "1.5.13",
     "@tryghost/helpers": "1.1.52",
-    "core-js": "^3.14.0",
+    "core-js": "3.19.1",
     "luxon": "2.0.2",
     "next": "^11.0.0",
     "prismjs": "^1.23.0",
