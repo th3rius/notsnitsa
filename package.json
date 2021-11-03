@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@tryghost/content-api": "1.4.1",
-    "@tryghost/helpers": "1.1.33",
+    "@tryghost/helpers": "1.1.52",
     "core-js": "^3.14.0",
     "luxon": "2.0.2",
     "next": "^11.0.0",
