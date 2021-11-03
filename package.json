@@ -15,7 +15,7 @@
     "@tryghost/helpers": "1.1.33",
     "core-js": "^3.14.0",
     "luxon": "2.0.2",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "prismjs": "^1.23.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
