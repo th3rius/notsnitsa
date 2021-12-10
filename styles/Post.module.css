@@ -1,0 +1,54 @@
+.header {
+  padding: 16px 32px;
+  opacity: 0.4;
+  transition: 0.4s;
+}
+
+.header:hover {
+  opacity: 1;
+}
+
+.blogTitle {
+  font-family: var(--font-serif);
+  margin: 0;
+}
+
+.blogTitle a {
+  color: #000;
+}
+
+.info {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  line-height: 1.65;
+}
+
+.date {
+  font-size: 0.8888888888888888em;
+  color: #696969;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.wrapper {
+  max-width: 768px;
+  padding: 0.5em 2rem 1.5em;
+  margin: 0 auto 8rem;
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+}
