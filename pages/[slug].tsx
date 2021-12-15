@@ -19,7 +19,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
   const title = post.title ?? "(Untitled)";
   const description = post.custom_excerpt ?? post.excerpt;
   const metaDescription = post.meta_description ?? description;
-  const tags = post.tags?.map((tag) => tag.name).join(", ");
+  const keywords = post.tags?.map((tag) => tag.name).join(", ");
   const ogDescription = post.og_description ?? description;
   const ogImage = post.og_image ?? post.feature_image ?? undefined;
   const twitterDescription = post.twitter_description ?? description;
@@ -36,7 +36,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
           <meta name="description" content={metaDescription} />
         )}
         <link rel="canonical" href={post.canonical_url ?? post.url} />
-        {tags ?? <meta name="keywords" content={tags} />}
+        {keywords ?? <meta name="keywords" content={keywords} />}
         <meta property="og:title" content={post.og_title ?? title} />
         {ogDescription && (
           <meta property="og:description" content={ogDescription} />
@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps<PostProps, PostParams> =
   async function getStaticProps(context) {
     const post = await api.posts.read(
       {slug: context.params!.slug},
-      {include: "authors"}
+      {include: ["authors", "tags"]}
     );
     if (!post) {
       return {
