@@ -36,7 +36,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
           <meta name="description" content={metaDescription} />
         )}
         <link rel="canonical" href={post.canonical_url ?? post.url} />
-        {keywords ?? <meta name="keywords" content={keywords} />}
+        {keywords && <meta name="keywords" content={keywords} />}
         <meta property="og:title" content={post.og_title ?? title} />
         {ogDescription && (
           <meta property="og:description" content={ogDescription} />
@@ -44,7 +44,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
         <meta property="og:url" content={post.url} />
         {post.og_image && <meta property="og:image" content={ogImage} />}
         <meta name="twitter:title" content={post.twitter_title ?? title} />
-        {twitterDescription ?? (
+        {twitterDescription && (
           <meta name="twitter:description" content={twitterDescription} />
         )}
         {twitterImage && <meta name="twitter:image" content={twitterImage} />}
