@@ -66,6 +66,7 @@ export const getStaticProps: GetStaticProps<PostProps, PostParams> =
     }
     return {
       props: {post},
+      revalidate: 10,
     };
   };
 
