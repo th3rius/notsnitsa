@@ -5,7 +5,6 @@ import {PostOrPage} from "@tryghost/content-api";
 import styles from "../styles/Post.module.css";
 import Link from "next/link";
 import {DateTime} from "luxon";
-import Footer from "../components/Footer";
 
 export type PostProps = {
   post: PostOrPage;
@@ -73,7 +72,6 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
           />
         )}
       </article>
-      <Footer />
     </div>
   );
 }

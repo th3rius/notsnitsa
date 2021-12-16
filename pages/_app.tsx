@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import "prismjs/themes/prism.css";
+import "prismjs/prism";
 import {useEffect} from "react";
 import Script from "next/script";
 import {useRouter} from "next/router";
