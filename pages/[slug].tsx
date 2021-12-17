@@ -51,7 +51,9 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
           name="twitter:card"
           content={twitterImage ? "summary_large_image" : "summary"}
         />
-        <meta name="twitter:creator" content={twitterCreator} />
+        {twitterCreator && (
+          <meta name="twitter:creator" content={twitterCreator} />
+        )}
       </Head>
       <header className={styles.header}>
         <h1 className={styles.blogTitle}>
