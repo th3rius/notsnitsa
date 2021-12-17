@@ -14,8 +14,6 @@ export type PostParams = {
   slug: string;
 };
 
-export const config = {amp: "hybrid"};
-
 function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
   const title = post.title ?? "(Untitled)";
   const description = post.custom_excerpt ?? post.excerpt;

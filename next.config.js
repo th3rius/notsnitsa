@@ -9,10 +9,6 @@ module.exports = {
         source: "/sitemap.xml",
         destination: "/_sitemap",
       },
-      {
-        source: "/:slug/amp",
-        destination: "/:slug?amp=1",
-      },
     ];
   },
 };
