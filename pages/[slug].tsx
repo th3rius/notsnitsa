@@ -28,6 +28,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
   const twitterCreator = post.primary_author?.twitter
     ? `@${post.primary_author?.twitter}`
     : undefined;
+  const createdAt = DateTime.fromISO(post.created_at!);
 
   return (
     <div>
@@ -58,24 +59,24 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
         )}
       </Head>
       <header className={styles.header}>
-        <h1 className={styles.blogTitle}>
-          <Link href="/">Notsnitsa</Link>
-        </h1>
+        <Link href="/">
+          <a className={styles.blogTitle}>Notsnitsa</a>
+        </Link>
       </header>
-      <article className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <div className={styles.info}>
-          <h2 className={styles.title}>{title}</h2>
-          <span className={styles.date}>
-            {DateTime.fromISO(post.created_at!).toFormat("LLLL d, yyyy")}
-          </span>
+          <h1 className={styles.title}>{title}</h1>
+          <time className="small mute" dateTime={createdAt.toISODate()}>
+            {createdAt.toFormat("LLLL d, yyyy")}
+          </time>
         </div>
         {post.html && (
-          <div
+          <main
             className={styles.body}
             dangerouslySetInnerHTML={{__html: post.html}}
           />
         )}
-      </article>
+      </div>
     </div>
   );
 }
