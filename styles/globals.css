@@ -1,6 +1,10 @@
+@import "cards.css";
+
 :root {
   --color-selection: #0dff55;
   --link-color: #ff4d00;
+  --color-code: #0d9eff;
+  --color-mute: #696969;
   --font-serif: Lora, "Palatino Linotype", "Book Antiqua", "New York",
     "DejaVu serif", serif;
   --font-sans: "Open Sans", "Segoe UI", Tahoma, Arial, sans-serif;
@@ -13,7 +17,9 @@
 }
 
 html,
-body {
+body,
+blockquote,
+figure {
   padding: 0;
   margin: 0;
 }
@@ -68,18 +74,38 @@ img {
   height: auto;
 }
 
+blockquote {
+  padding-left: 23px;
+  margin-left: -23px;
+  box-shadow: var(--link-color) 3px 0 0 0px inset;
+  font-style: italic;
+  word-break: break-word;
+}
+
+code {
+  color: var(--color-code);
+  font-family: var(--font-mono);
+}
+
+p > code:before,
+p > code:after {
+  content: "`";
+}
+
+ul {
+  list-style: none;
+}
+
+ul > li:before {
+  position: absolute;
+  content: "-";
+  margin-left: -25px;
+}
+
 .mute {
-  color: #696969;
+  color: var(--color-mute);
 }
 
 .small {
   font-size: 0.8888888888888888em;
-}
-
-blockquote {
-  padding-left: 23px;
-  margin: 0 0 0 -23px;
-  box-shadow: var(--link-color) 3px 0 0 0px inset;
-  font-style: italic;
-  word-break: break-word;
 }
