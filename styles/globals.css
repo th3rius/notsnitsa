@@ -1,9 +1,11 @@
 :root {
-  --color-selection: #79ffe1;
-  --link-color: #0070f3;
+  --color-selection: #0dff55;
+  --link-color: #ff4d00;
   --font-serif: Lora, "Palatino Linotype", "Book Antiqua", "New York",
     "DejaVu serif", serif;
   --font-sans: "Open Sans", "Segoe UI", Tahoma, Arial, sans-serif;
+  --font-mono: Hack, consolas, Menlo-Regular, Menlo, Monaco, "ubuntu mono",
+    monospace, monospace;
 }
 
 ::selection {
@@ -28,6 +30,7 @@ body {
   font-feature-settings: "liga" on;
   line-height: 1.8;
   font-size: 16px;
+  color: #111;
 }
 
 a {
@@ -71,4 +74,12 @@ img {
 
 .small {
   font-size: 0.8888888888888888em;
+}
+
+blockquote {
+  padding-left: 23px;
+  margin: 0 0 0 -23px;
+  box-shadow: var(--link-color) 3px 0 0 0px inset;
+  font-style: italic;
+  word-break: break-word;
 }
