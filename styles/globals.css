@@ -5,6 +5,7 @@
   --link-color: #ff4d00;
   --color-code: #0d9eff;
   --color-mute: #696969;
+  --code-bg: #f4f4f4;
   --font-serif: Lora, "Palatino Linotype", "Book Antiqua", "New York",
     "DejaVu serif", serif;
   --font-sans: "Open Sans", "Segoe UI", Tahoma, Arial, sans-serif;
@@ -83,13 +84,11 @@ blockquote {
 }
 
 code {
-  color: var(--color-code);
+  padding: 4px;
+  border-radius: 4px;
+  word-wrap: normal;
+  background-color: var(--code-bg);
   font-family: var(--font-mono);
-}
-
-p > code:before,
-p > code:after {
-  content: "`";
 }
 
 ul {
