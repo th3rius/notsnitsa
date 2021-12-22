@@ -1,16 +1,16 @@
 @import "cards.css";
 
 :root {
-  --color-selection: #0dff55;
-  --link-color: #ff4d00;
-  --color-code: #0d9eff;
+  --color-selection: #ebcb8b;
+  --link-color: #b48ead;
+  /*--color-code: #0d9eff;*/
   --color-mute: #696969;
-  --code-bg: #f4f4f4;
+  --code-bg: #eceff4;
   --font-serif: Lora, "Palatino Linotype", "Book Antiqua", "New York",
     "DejaVu serif", serif;
   --font-sans: "Open Sans", "Segoe UI", Tahoma, Arial, sans-serif;
-  --font-mono: Hack, consolas, Menlo-Regular, Menlo, Monaco, "ubuntu mono",
-    monospace, monospace;
+  --font-mono: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
 }
 
 ::selection {
@@ -89,16 +89,6 @@ code {
   word-wrap: normal;
   background-color: var(--code-bg);
   font-family: var(--font-mono);
-}
-
-ul {
-  list-style: none;
-}
-
-ul > li:before {
-  position: absolute;
-  content: "-";
-  margin-left: -25px;
 }
 
 .mute {

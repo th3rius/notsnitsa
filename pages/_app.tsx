@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "../styles/dracula-prism.css";
+import "../styles/nord-prism.css";
 import "prismjs/prism";
 import {useEffect} from "react";
 import Script from "next/script";
