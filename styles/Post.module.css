@@ -29,4 +29,5 @@
 
 .body {
   margin-bottom: 8rem;
+  word-wrap: break-word;
 }

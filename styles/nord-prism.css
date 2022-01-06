@@ -25,11 +25,6 @@ pre[class*="language-"] {
   hyphens: none;
 }
 
-code[class*="language-"] ::selection,
-pre[class*="language-"] ::selection {
-  background-color: #d8dee9;
-}
-
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
