@@ -18,21 +18,24 @@ export const getServerSideProps: GetServerSideProps = async ({res}) => {
   );
   res.write(
     xml(
-      {
-        urlset: [
-          {_attr: {xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9"}},
-          ...posts.map((post) => ({
-            url: [
-              {
-                loc: `${BLOG_URL}/${post.slug}`,
-              },
-              {
-                lastmod: DateTime.fromISO(post.updated_at!).toISODate(),
-              },
-            ],
-          })),
-        ],
-      },
+      [
+        {"?xml-stylesheet": {_attr: {type: "text/xsl", href: "/sitemap.xsl"}}},
+        {
+          urlset: [
+            {_attr: {xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9"}},
+            ...posts.map((post) => ({
+              url: [
+                {
+                  loc: `${BLOG_URL}/${post.slug}`,
+                },
+                {
+                  lastmod: DateTime.fromISO(post.updated_at!).toISODate(),
+                },
+              ],
+            })),
+          ],
+        },
+      ],
       {declaration: true}
     )
   );

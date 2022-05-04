@@ -1,5 +1,5 @@
 .header {
-  padding: 8px 1.6666666667rem;
+  padding: 8px 1.6rem;
   opacity: 0.4;
   transition: 0.4s opacity;
 }
@@ -9,7 +9,7 @@
 }
 
 .blogTitle {
-  font-size: 1.6666666667rem;
+  font-size: 1.6rem;
   font-family: var(--font-serif);
   font-weight: bold;
   color: #111;
@@ -23,7 +23,7 @@
 
 .wrapper {
   max-width: 768px;
-  padding: 0.5em 1.6666666667rem;
+  padding: 0.5em 1.6rem;
   margin: 0 auto;
 }
 

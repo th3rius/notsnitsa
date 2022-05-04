@@ -44,7 +44,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 16px;
-  font-size: 0.8888888888888888em;
+  font-size: 0.8em;
 }
 
 .kg-bookmark-icon {
@@ -98,7 +98,7 @@
 
 @media (max-width: 500px) {
   .kg-gallery-container {
-    margin: auto -1.66667rem;
+    margin: auto -1.6rem;
   }
 
   .kg-bookmark-container {

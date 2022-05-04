@@ -5,6 +5,7 @@ import {PostOrPage} from "@tryghost/content-api";
 import styles from "../styles/Post.module.css";
 import Link from "next/link";
 import {DateTime} from "luxon";
+import {useRouter} from "next/router";
 
 const BLOG_URL = process.env.BLOG_URL!;
 
@@ -17,6 +18,7 @@ export type PostParams = {
 };
 
 function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const router = useRouter();
   const title = post.title ?? "(Untitled)";
   const url = `${BLOG_URL}/${post.slug}`;
   const description = post.custom_excerpt ?? post.excerpt;
@@ -87,7 +89,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
   const paths = posts.map((post) => ({
     params: {slug: post.slug},
   }));
-  return {paths, fallback: "blocking"}; // FIXME
+  return {paths, fallback: "blocking"};
 };
 
 export const getStaticProps: GetStaticProps<PostProps, PostParams> =
