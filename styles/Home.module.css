@@ -17,3 +17,17 @@
   margin-top: 0.5em;
   line-height: 1.5;
 }
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+}
+
+.uUrl {
+  cursor: pointer;
+  color: #333;
+}
+
+.uUrl:hover {
+  text-decoration: underline;
+}

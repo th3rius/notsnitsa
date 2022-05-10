@@ -1,10 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import {GetStaticProps} from "next";
+import {GetStaticProps, InferGetStaticPropsType} from "next";
 import api from "../lib/api";
+import {PostsOrPages} from "@tryghost/content-api";
+import {DateTime} from "luxon";
 
-export default function Home() {
+export type HomeProps = {
+  posts: PostsOrPages;
+};
+
+function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -16,15 +21,26 @@ export default function Home() {
         <h1>Notsnitsa</h1>
         <p className={styles.description}>black magic code</p>
       </header>
-      <section></section>
+      <section className={styles.wrapper}>
+        {posts.map((post) => (
+          <div key={post.uuid}>
+            <h2 className={styles.postTitle}>
+              <a className={styles.uUrl}>{post.title}</a>
+            </h2>
+            <time>{}</time>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
 
-export const getStaticProps: GetStaticProps = async function () {
+export const getStaticProps: GetStaticProps<HomeProps> = async function () {
   const posts = await api.posts.browse({limit: "all"});
   return {
     props: {posts},
     revalidate: 10,
   };
 };
+
+export default Home;
