@@ -1,10 +1,38 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import {GetStaticProps} from "next";
+import {GetStaticProps, InferGetStaticPropsType} from "next";
 import api from "../lib/api";
+import {PostOrPage, PostsOrPages} from "@tryghost/content-api";
+import Link from "next/link";
+import {DateTime} from "luxon";
 
-export default function Home() {
+export interface PostProps {
+  post: PostOrPage;
+}
+
+function PostPreview({post}: PostProps) {
+  const createdAt = DateTime.fromISO(post.created_at!);
+
+  return (
+    <div key={post.id}>
+      <h2>
+        <Link href={post.url!}>
+          <a>{post.title}</a>
+        </Link>
+      </h2>
+      <time dateTime={createdAt.toISODate()} className="mute">
+        {createdAt.toFormat("LLLL d, yyyy")}
+      </time>
+      <div>{post.custom_excerpt ?? post.excerpt}</div>
+    </div>
+  );
+}
+
+export type HomeProps = {
+  posts: PostsOrPages;
+};
+
+function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -16,15 +44,21 @@ export default function Home() {
         <h1>Notsnitsa</h1>
         <p className={styles.description}>black magic code</p>
       </header>
-      <section></section>
+      <section>
+        {posts.map((post) => (
+          <PostPreview key={post.id} post={post} />
+        ))}
+      </section>
     </div>
   );
 }
 
-export const getStaticProps: GetStaticProps = async function () {
+export const getStaticProps: GetStaticProps<HomeProps> = async function () {
   const posts = await api.posts.browse({limit: "all"});
   return {
     props: {posts},
     revalidate: 10,
   };
 };
+
+export default Home;

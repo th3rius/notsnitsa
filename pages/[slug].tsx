@@ -5,9 +5,6 @@ import {PostOrPage} from "@tryghost/content-api";
 import styles from "../styles/Post.module.css";
 import Link from "next/link";
 import {DateTime} from "luxon";
-import {useRouter} from "next/router";
-
-const BLOG_URL = process.env.BLOG_URL!;
 
 export type PostProps = {
   post: PostOrPage;
@@ -18,9 +15,8 @@ export type PostParams = {
 };
 
 function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
-  const router = useRouter();
   const title = post.title ?? "(Untitled)";
-  const url = `${BLOG_URL}/${post.slug}`;
+  const url = (post.canonical_url ?? post.url)!;
   const description = post.custom_excerpt ?? post.excerpt;
   const metaDescription = post.meta_description ?? description;
   const keywords = post.tags?.map((tag) => tag.name).join(", ");
@@ -40,7 +36,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
         {metaDescription && (
           <meta name="description" content={metaDescription} />
         )}
-        <link rel="canonical" href={post.canonical_url ?? url} />
+        <link rel="canonical" href={url} />
         {keywords && <meta name="keywords" content={keywords} />}
         <meta property="og:title" content={post.og_title ?? title} />
         {ogDescription && (

@@ -3,8 +3,6 @@ import api from "../lib/api";
 import {DateTime} from "luxon";
 import xml from "xml";
 
-const BLOG_URL = process.env.BLOG_URL!;
-
 // Generates a dynamic sitemap.xml. A sitemap defines the
 // relationship between pages of the site. Search engines
 // utilize this file to more accurately index the site.
@@ -26,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({res}) => {
             ...posts.map((post) => ({
               url: [
                 {
-                  loc: `${BLOG_URL}/${post.slug}`,
+                  loc: post.url,
                 },
                 {
                   lastmod: DateTime.fromISO(post.updated_at!).toISODate(),
