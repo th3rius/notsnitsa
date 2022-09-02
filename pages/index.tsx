@@ -6,11 +6,11 @@ import {PostOrPage, PostsOrPages} from "@tryghost/content-api";
 import Link from "next/link";
 import {DateTime} from "luxon";
 
-export interface PostProps {
+export interface PostPreviewProps {
   post: PostOrPage;
 }
 
-function PostPreview({post}: PostProps) {
+function PostPreview({post}: PostPreviewProps) {
   const createdAt = DateTime.fromISO(post.created_at!);
 
   return (
