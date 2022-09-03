@@ -5250,7 +5250,7 @@ xml-name-validator@^4.0.0:
 
 "xml@https://github.com/Rojuinex/node-xml":
   version "1.0.1"
-  resolved "git+ssh://git@github.com/Rojuinex/node-xml.git#255c232192e7e051766aa53d75ff2c8f8be94aac"
+  resolved "https://github.com/Rojuinex/node-xml#255c232192e7e051766aa53d75ff2c8f8be94aac"
 
 xmlchars@^2.2.0:
   version "2.2.0"

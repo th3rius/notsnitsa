@@ -79,10 +79,12 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
             dangerouslySetInnerHTML={{__html: post.html}}
           />
         )}
+        <div className="tags">
+          {post.tags?.map((tag) => (
+            <Tag key={tag.id}>{tag.name}</Tag>
+          ))}
+        </div>
       </div>
-      {/*{post.tags?.map((tag) => (*/}
-      {/*  <Tag>{tag.name}</Tag>*/}
-      {/*))}*/}
       <style jsx>
         {`
           .header {
@@ -112,11 +114,17 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
             max-width: 768px;
             padding: 0.5em 1.6rem;
             margin: 0 auto;
+            margin-bottom: 8rem;
           }
 
           .body {
-            margin-bottom: 8rem;
             word-wrap: break-word;
+          }
+
+          .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
           }
         `}
       </style>

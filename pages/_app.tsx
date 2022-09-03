@@ -24,8 +24,11 @@ function App({Component, pageProps}: AppProps) {
   }, [router.events]);
 
   useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+    router.events.on("routeChangeComplete", Prism.highlightAll);
+    return () => {
+      router.events.off("routeChangeComplete", Prism.highlightAll);
+    };
+  }, [router.events]);
 
   return (
     <>
