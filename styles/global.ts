@@ -80,8 +80,8 @@ export default css.global/* language=css */ `
   }
 
   code {
-    padding: 4px;
-    border-radius: 4px;
+    padding: 2px;
+    border-radius: 2px;
     word-wrap: normal;
     background-color: ${theme.colorBg};
     font-size: 14px;

@@ -35,12 +35,12 @@ export default css.global/* language=css */ `
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
-    border-radius: 0.3em;
+    border-radius: 2px;
   }
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
-    background: #eceff4;
+    background: #f9fafb;
   }
 
   /* Inline code */

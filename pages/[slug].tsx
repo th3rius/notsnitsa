@@ -80,9 +80,9 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
           />
         )}
       </div>
-      {post.tags?.map((tag) => (
-        <Tag>{tag.name}</Tag>
-      ))}
+      {/*{post.tags?.map((tag) => (*/}
+      {/*  <Tag>{tag.name}</Tag>*/}
+      {/*))}*/}
       <style jsx>
         {`
           .header {
