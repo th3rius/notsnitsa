@@ -1,3 +1,6 @@
+import api from "lib/api";
+
+import {SettingsResponse} from "@tryghost/content-api";
 import Document, {
   DocumentContext,
   Head,
@@ -5,8 +8,6 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import api from "../lib/api";
-import {SettingsResponse} from "@tryghost/content-api";
 
 export interface MyDocumentProps {
   settings: SettingsResponse;
@@ -22,13 +23,7 @@ class MyDocument extends Document<MyDocumentProps> {
   render() {
     return (
       <Html lang={this.props.settings.lang}>
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans&display=swap"
-            rel="stylesheet"
-          />
-          <meta property="og:title" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

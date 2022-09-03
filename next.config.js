@@ -3,7 +3,7 @@
  */
 module.exports = {
   reactStrictMode: true,
-  rewrites: function () {
+  rewrites() {
     return [
       {
         source: "/sitemap.xml",

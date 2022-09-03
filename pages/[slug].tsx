@@ -1,10 +1,14 @@
-import api from "../lib/api";
-import Head from "next/head";
-import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
+import Tag from "components/Tag";
+import api from "lib/api";
+import cardStyles from "styles/card";
+import nordStyles from "styles/nord";
+import theme from "styles/theme";
+
 import {PostOrPage} from "@tryghost/content-api";
-import styles from "../styles/Post.module.css";
-import Link from "next/link";
 import {DateTime} from "luxon";
+import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
+import Head from "next/head";
+import Link from "next/link";
 
 export type PostProps = {
   post: PostOrPage;
@@ -30,7 +34,7 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
   const createdAt = DateTime.fromISO(post.created_at!);
 
   return (
-    <div>
+    <div className="line-numbers">
       <Head>
         <title>{post.meta_title ?? title}</title>
         {metaDescription && (
@@ -57,25 +61,71 @@ function Post({post}: InferGetStaticPropsType<typeof getStaticProps>) {
           <meta name="twitter:creator" content={twitterCreator} />
         )}
       </Head>
-      <header className={styles.header}>
+      <header className="header">
         <Link href="/">
-          <a className={styles.blogTitle}>Notsnitsa</a>
+          <a className="blogTitle">Notsnitsa</a>
         </Link>
       </header>
-      <div className={styles.wrapper}>
-        <div className={styles.info}>
-          <h1 className={styles.title}>{title}</h1>
+      <div className="wrapper">
+        <div className="info">
+          <h1 className="title">{title}</h1>
           <time className="small mute" dateTime={createdAt.toISODate()}>
             {createdAt.toFormat("LLLL d, yyyy")}
           </time>
         </div>
         {post.html && (
           <main
-            className={styles.body}
+            className="body"
             dangerouslySetInnerHTML={{__html: post.html}}
           />
         )}
       </div>
+      {post.tags?.map((tag) => (
+        <Tag>{tag.name}</Tag>
+      ))}
+      <style jsx>
+        {`
+          .header {
+            padding: 8px 1.6rem;
+            opacity: 0.4;
+            transition: 0.4s opacity;
+          }
+
+          .header:hover {
+            opacity: 1;
+          }
+
+          .blogTitle {
+            font-size: 1.6rem;
+            font-family: ${theme.fontSerif};
+            font-weight: bold;
+            color: #111;
+          }
+
+          .info {
+            text-align: center;
+            margin-top: 2.25rem;
+            margin-bottom: 3rem;
+          }
+
+          .wrapper {
+            max-width: 768px;
+            padding: 0.5em 1.6rem;
+            margin: 0 auto;
+          }
+
+          .body {
+            margin-bottom: 8rem;
+            word-wrap: break-word;
+          }
+        `}
+      </style>
+      <style jsx global>
+        {cardStyles}
+      </style>
+      <style jsx global>
+        {nordStyles}
+      </style>
     </div>
   );
 }

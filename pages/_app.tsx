@@ -1,11 +1,14 @@
-import "../styles/globals.css";
-import "../styles/nord-prism.css";
-import "prismjs/prism";
-import {useEffect} from "react";
-import Script from "next/script";
-import {useRouter} from "next/router";
-import * as gtag from "../lib/gtag";
+import Layout from "components/Layout";
+import * as gtag from "lib/gtag";
+
+import "@fontsource/lora";
+import "@fontsource/open-sans";
+import "@fontsource/source-code-pro";
 import {AppProps} from "next/app";
+import {useRouter} from "next/router";
+import Script from "next/script";
+import Prism from "prismjs";
+import {useEffect} from "react";
 
 function App({Component, pageProps}: AppProps) {
   const router = useRouter();
@@ -20,13 +23,18 @@ function App({Component, pageProps}: AppProps) {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
-      <Script id="gtag-init">{`
+      <Script id="gtag-init">{
+        /* language=js */ `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -34,8 +42,11 @@ function App({Component, pageProps}: AppProps) {
         gtag('config', '${gtag.GA_TRACKING_ID}', {
           page_path: window.location.pathname
         });
-      `}</Script>
-      <Component {...pageProps} />
+      `
+      }</Script>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
